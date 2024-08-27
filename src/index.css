@@ -1,4 +1,17 @@
-:root {
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* body {
+  background-image: url("./assets/iPad.png");
+  height: 100dvh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+} */
+
+/* :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
@@ -70,4 +83,4 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
-}
+} */

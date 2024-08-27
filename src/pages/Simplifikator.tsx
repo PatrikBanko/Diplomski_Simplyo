@@ -12,16 +12,16 @@ export default function Simplifikator() {
             <Link to={'/'}><button>Povratak</button></Link>
 
             <h1>Simplifikator</h1>
-            <div className="razina-simplifikacije">
+            <div className="simplifikator-razina-simplifikacije">
                 <RazinaSimplifikacije />
             </div>
 
-            <div className="ulaz-izlaz">
+            <div className="simplifikator-ulaz-izlaz">
                 <UlazniTekst />
                 <IzlazniTekst />
             </div>
 
-            <div className="navigacija">
+            <div className="simplifikator-navigacija">
                 <Navigacija />
             </div>
 

@@ -1,4 +1,5 @@
 import { Outlet, Link, NavLink } from "react-router-dom";
+import '../styles/Navigacija.css';
 
 
 export default function Navigacija() {
@@ -6,18 +7,18 @@ export default function Navigacija() {
         <div className="navigacija">
 
             <Link to={'/'}>
-                <button>Početna</button>
+                <button className="btn pocetna">Početna</button>
             </Link>
 
             <Link to={'/simplifikator/'}>
-                <button>Simplifikator</button>
+                <button className="btn simplifikator">Simplifikator</button>
             </Link>
 
             <Link to={'/povijest/'}>
-                <button>Povijest</button>
+                <button className="btn povijest">Povijest</button>
             </Link>
 
-            <button>Očisti</button>
+            <button className="btn ocisti">Očisti</button>
         </div>
     );
 }
