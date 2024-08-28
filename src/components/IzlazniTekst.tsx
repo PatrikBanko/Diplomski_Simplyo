@@ -5,7 +5,11 @@ function IzlazniTekst() {
     <div className="izlazni-tekst">
       <div className="izlaz-header">
         {/* <textarea name="" id="" placeholder="Upiši tekst..."></textarea> */}
-        <textarea placeholder="Simplificirani tekst" rows="3"></textarea>
+        <textarea
+          placeholder="Simplificirani tekst"
+          rows="3"
+          className="izlaz-textarea"
+        ></textarea>
         <button className="zatvori-btn">
           <svg
             width="24"

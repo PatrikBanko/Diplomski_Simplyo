@@ -5,7 +5,11 @@ function UlazniTekst() {
     <div className="ulazni-tekst">
       <div className="ulaz-header">
         {/* <textarea name="" id="" placeholder="Upiši tekst..."></textarea> */}
-        <textarea placeholder="Unos teksta..." rows="3"></textarea>
+        <textarea
+          placeholder="Unos teksta..."
+          rows="3"
+          className="unos-textarea"
+        ></textarea>
         <button className="zatvori-btn">
           <svg
             width="24"

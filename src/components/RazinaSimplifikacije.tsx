@@ -5,8 +5,7 @@ function RazinaSimplifikacije() {
     <div className="razina-simplifikacije">
       <select id="options" className="dropdown-select">
         <option value="" disabled selected>
-          Razina simplifikacije
-          <svg
+          {/* <svg
             width="24"
             height="24"
             viewBox="0 0 24 24"
@@ -20,7 +19,8 @@ function RazinaSimplifikacije() {
               stroke-linecap="round"
               stroke-linejoin="round"
             />
-          </svg>
+          </svg> */}
+          Razina simplifikacije
         </option>
         <option value="option1">Niska</option>
         <option value="option2">Balansirana</option>
