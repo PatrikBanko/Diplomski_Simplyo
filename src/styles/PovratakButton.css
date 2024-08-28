@@ -1,0 +1,12 @@
+.povratak-button .povratak-btn {
+    background: none;
+    color: white;
+    display: inline-flex;
+    box-sizing: border-box;
+    border: none;
+    padding: 10px 20px;
+    align-items: center;
+    justify-content: center;
+    font-size: 17px;
+    padding-left: 5%;
+}

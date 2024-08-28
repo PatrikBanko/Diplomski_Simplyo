@@ -1,19 +1,37 @@
+/*  Lokalni stilovi za Navigacija.tsx komponentu */
 .navigacija {
-    background: rgba(0, 0, 0, 0.44);
-    width: 369px;
-    max-height: 98px;
-    border-radius: 40px;
-
+    background-color: rgba(0, 0, 0, 0.44);
+    max-width: 500px;
+    width: 90dvw;
+    border-radius: 35px;
     display: flex;
     align-items: center;
-    padding: 19px 21px 19px 21px;
     justify-content: space-between;
+    padding: 19px 29px;
+    box-sizing: border-box;
+    /* margin: 20px auto; */
 }
 
-
-.btn {
+.navigacija .btn {
     width: 60px;
     height: 60px;
+    border: none;
     border-radius: 14px;
+    cursor: pointer;
+}
 
+.btn.pocetna-btn {
+    background-color: #007aff;
+}
+
+.btn.simplifikator-btn {
+    background-color: #34c759;
+}
+
+.btn.povijest-btn {
+    background-color: #ffcc00;
+}
+
+.btn.ocisti-btn {
+    background-color: #ff3b30;
 }

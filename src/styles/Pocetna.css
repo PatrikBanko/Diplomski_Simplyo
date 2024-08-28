@@ -1,1 +1,30 @@
 /* Lokalni stilovi za Pocetna.tsx */
+.pocetna {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height: 100dvh;
+}
+
+.pocetna>h1 {
+    color: white;
+    font-size: 50px;
+    font-weight: bold;
+    margin-top: 125px;
+}
+
+.pocetna>p {
+    color: white;
+    font-size: 25px;
+    text-align: center;
+    margin-top: 175px;
+}
+
+.btn.zapocni-btn {
+    width: 260px;
+    height: 60px;
+    font-size: 20px;
+    margin-bottom: 50px;
+    color: black;
+}
