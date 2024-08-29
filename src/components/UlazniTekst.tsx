@@ -1,14 +1,35 @@
+import React from "react";
 import "../styles/UlazniTekst.css";
 
-function UlazniTekst() {
+interface UlazniTekstProps {
+  inputTekst: string;
+  setInputTekst: (value: string) => void;
+  onSimplificiraj: () => void;
+}
+
+const UlazniTekst: React.FC<UlazniTekstProps> = ({
+  inputTekst,
+  setInputTekst,
+  onSimplificiraj,
+}) => {
+  const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setInputTekst(event.target.value);
+  };
+
+  const handleSimplificiraj = () => {
+    onSimplificiraj();
+  };
+
   return (
     <div className="ulazni-tekst">
       <div className="ulaz-header">
         {/* <textarea name="" id="" placeholder="Upiši tekst..."></textarea> */}
         <textarea
           placeholder="Unos teksta..."
-          rows="3"
+          rows={3}
           className="unos-textarea"
+          value={inputTekst}
+          onChange={handleChange}
         ></textarea>
         <button className="zatvori-btn">
           <svg
@@ -58,12 +79,16 @@ function UlazniTekst() {
             </defs>
           </svg>
         </button>
-        <button type="submit" className="simplificiraj-btn">
+        <button
+          type="submit"
+          className="simplificiraj-btn"
+          onClick={handleSimplificiraj}
+        >
           Simplificiraj
         </button>
       </div>
     </div>
   );
-}
+};
 
 export default UlazniTekst;

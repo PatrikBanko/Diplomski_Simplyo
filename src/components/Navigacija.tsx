@@ -1,5 +1,9 @@
-import { Outlet, Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "../styles/Navigacija.css";
+
+const handleReload = () => {
+  window.location.reload();
+};
 
 export default function Navigacija() {
   return (
@@ -62,7 +66,7 @@ export default function Navigacija() {
         </button>
       </Link>
 
-      <button className="btn ocisti-btn">
+      <button className="btn ocisti-btn" onClick={handleReload}>
         <svg
           width="32"
           height="32"

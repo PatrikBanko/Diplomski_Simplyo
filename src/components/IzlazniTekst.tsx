@@ -1,14 +1,40 @@
 import "../styles/IzlazniTekst.css";
+// import React, { useState, useRef } from "react";
+import React, { useRef } from "react";
 
-function IzlazniTekst() {
+interface IzlazniTekstProps {
+  outputTekst: string;
+}
+
+const IzlazniTekst: React.FC<IzlazniTekstProps> = ({ outputTekst }) => {
+  const simplificiranoRef = useRef<HTMLTextAreaElement>(null);
+
+  //TODO Istestirati copy gumb za mobitel
+  const handleKopiraj = () => {
+    if (simplificiranoRef.current) {
+      simplificiranoRef.current.select();
+      navigator.clipboard
+        .writeText(simplificiranoRef.current.value)
+        .then(() => {
+          alert("Rezultat kopiran u međuspremnik!");
+        })
+        .catch((err) => {
+          console.error("Neuspjelo kopiranje u međuspremnik: ", err);
+        });
+    }
+  };
+
   return (
     <div className="izlazni-tekst">
       <div className="izlaz-header">
         {/* <textarea name="" id="" placeholder="Upiši tekst..."></textarea> */}
         <textarea
           placeholder="Simplificirani tekst"
-          rows="3"
+          rows={3}
           className="izlaz-textarea"
+          readOnly={true}
+          value={outputTekst}
+          ref={simplificiranoRef}
         ></textarea>
         <button className="zatvori-btn">
           <svg
@@ -46,7 +72,7 @@ function IzlazniTekst() {
             />
           </svg>
         </button>
-        <button className="kopiraj-btn">
+        <button className="kopiraj-btn" onClick={handleKopiraj}>
           <svg
             width="24"
             height="24"
@@ -73,6 +99,6 @@ function IzlazniTekst() {
       </div>
     </div>
   );
-}
+};
 
 export default IzlazniTekst;

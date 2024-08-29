@@ -1,9 +1,31 @@
+import React, { useState } from "react";
 import "../styles/RazinaSimplifikacije.css";
 
-function RazinaSimplifikacije() {
+interface RazinaSimplifikacijeProps {
+  onChange: (razina: string) => void;
+}
+
+const RazinaSimplifikacije: React.FC<RazinaSimplifikacijeProps> = ({
+  onChange,
+}) => {
+  const [odabranaRazina, setOdabranaRazina] = useState<string>("");
+
+  const handleOdabranaRazinaChange = (
+    event: React.ChangeEvent<HTMLSelectElement>
+  ) => {
+    const razina = event.target.value;
+    setOdabranaRazina(razina);
+    onChange(razina);
+  };
+
   return (
     <div className="razina-simplifikacije">
-      <select id="options" className="dropdown-select">
+      <select
+        id="options"
+        className="dropdown-select"
+        value={odabranaRazina}
+        onChange={handleOdabranaRazinaChange}
+      >
         <option value="" disabled selected>
           {/* <svg
             width="24"
@@ -22,12 +44,12 @@ function RazinaSimplifikacije() {
           </svg> */}
           Razina simplifikacije
         </option>
-        <option value="option1">Niska</option>
-        <option value="option2">Balansirana</option>
-        <option value="option3">Visoka</option>
+        <option value="niska">Niska</option>
+        <option value="balansirana">Balansirana</option>
+        <option value="visoka">Visoka</option>
       </select>
     </div>
   );
-}
+};
 
 export default RazinaSimplifikacije;
