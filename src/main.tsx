@@ -9,6 +9,7 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
+import { SimplifiedTextProvider } from './components/SimplificiraniTekstContext.tsx'
 
 // import { createRoot } from 'react-dom/client'
 // import App from './App.tsx'
@@ -31,7 +32,9 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <SimplifiedTextProvider>
+      <RouterProvider router={router} />
+    </SimplifiedTextProvider>
     {/* <App /> */}
   </React.StrictMode>,
 )

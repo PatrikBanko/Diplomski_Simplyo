@@ -1,18 +1,18 @@
 import "../styles/PovijestRecord.css";
 
-interface PovijestRecordProps {
-  outputTekst: string;
-}
+// interface PovijestRecordProps {
+//   outputTekst: string;
+// }
 
-const PovijestRecord: React.FC<PovijestRecordProps> = ({ outputTekst }) => {
-  const handleKopiraj = () => {
-    navigator.clipboard
-      .writeText(outputTekst)
-      .then(() => alert("Tekst kopiran u međuspremnik!"))
-      .catch((err) =>
-        console.error("Neuspjelo kopiranje u međuspremnik: ", err)
-      );
-  };
+const PovijestRecord = (/*{ outputTekst }*/) => {
+  // const handleKopiraj = () => {
+  //   navigator.clipboard
+  //     .writeText(outputTekst)
+  //     .then(() => alert("Tekst kopiran u međuspremnik!"))
+  //     .catch((err) =>
+  //       console.error("Neuspjelo kopiranje u međuspremnik: ", err)
+  //     );
+  // };
   return (
     <div className="povijest-record">
       <div className="povijest-record-header">
@@ -20,7 +20,7 @@ const PovijestRecord: React.FC<PovijestRecordProps> = ({ outputTekst }) => {
           placeholder="Simplificirani tekst"
           rows={3}
           readOnly={true}
-          value={outputTekst}
+        //value={outputTekst}
         ></textarea>
       </div>
       <div className="povijest-record-footer">
@@ -41,7 +41,7 @@ const PovijestRecord: React.FC<PovijestRecordProps> = ({ outputTekst }) => {
             />
           </svg>
         </button>
-        <button className="kopiraj-btn" onClick={handleKopiraj}>
+        <button className="kopiraj-btn" /*onClick={handleKopiraj}*/>
           <svg
             width="24"
             height="24"

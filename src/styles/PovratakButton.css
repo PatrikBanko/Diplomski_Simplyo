@@ -11,3 +11,7 @@
     font-size: 17px;
     /* padding-left: 5%; */
 }
+
+.povratak-button .povratak-btn:hover {
+    cursor: pointer;
+}

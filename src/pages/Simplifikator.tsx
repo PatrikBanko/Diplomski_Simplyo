@@ -1,17 +1,17 @@
 import { useState } from "react";
+import { useSimplifiedTextContext } from "../components/SimplificiraniTekstContext";
 
 import PovratakButton from "../components/PovratakButton";
 import Navigacija from "../components/Navigacija";
 import RazinaSimplifikacije from "../components/RazinaSimplifikacije";
 import UlazniTekst from "../components/UlazniTekst";
 import IzlazniTekst from "../components/IzlazniTekst";
-import { useSimplifiedTextContext } from "./SimplificiraniTekstContex";
 
 import axios from "axios";
 
 import "../styles/Simplifikator.css";
 
-export default function Simplifikator() {
+const Simplifikator = () => {
   //State za unos i ispis teksta
   const [inputTekst, setInputTekst] = useState("");
   const [outputTekst, setOutputTekst] = useState("");
@@ -72,8 +72,8 @@ export default function Simplifikator() {
       const response = await axios.post(apiUrl, data, { headers });
 
       setOutputTekst(response.data.choices[0].message.content.trim());
-
       addSimplifiedText(response.data.choices[0].message.content.trim());
+
     } catch (error) {
       alert("Error processing your request: " + error);
     }
@@ -110,3 +110,5 @@ export default function Simplifikator() {
     </div>
   );
 }
+
+export default Simplifikator
