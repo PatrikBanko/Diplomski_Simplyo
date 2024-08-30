@@ -16,6 +16,10 @@ const UlazniTekst: React.FC<UlazniTekstProps> = ({
     setInputTekst(event.target.value);
   };
 
+  const resetTextarea = () => {
+    setInputTekst("");
+  };
+
   const handleSimplificiraj = () => {
     onSimplificiraj();
   };
@@ -31,7 +35,7 @@ const UlazniTekst: React.FC<UlazniTekstProps> = ({
           value={inputTekst}
           onChange={handleChange}
         ></textarea>
-        <button className="zatvori-btn">
+        <button className="zatvori-btn" onClick={resetTextarea}>
           <svg
             width="24"
             height="24"

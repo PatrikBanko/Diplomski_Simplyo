@@ -5,6 +5,7 @@ import Navigacija from "../components/Navigacija";
 import RazinaSimplifikacije from "../components/RazinaSimplifikacije";
 import UlazniTekst from "../components/UlazniTekst";
 import IzlazniTekst from "../components/IzlazniTekst";
+import { useSimplifiedTextContext } from "./SimplificiraniTekstContex";
 
 import axios from "axios";
 
@@ -15,6 +16,8 @@ export default function Simplifikator() {
   const [inputTekst, setInputTekst] = useState("");
   const [outputTekst, setOutputTekst] = useState("");
   const [razinaSimplifikacije, setRazinaSimplifikacije] = useState("");
+
+  const { addSimplifiedText } = useSimplifiedTextContext();
 
   const handleRazinaSimplifikacijeChange = (
     level: React.SetStateAction<string>
@@ -37,16 +40,20 @@ export default function Simplifikator() {
 
       switch (razinaSimplifikacije) {
         case "Niska":
-          systemMessage = "";
+          systemMessage =
+            "Blago pojednostavi tekst, zadržavajući većinu originalnih detalja.";
           break;
         case "Balansirana":
-          systemMessage = "";
+          systemMessage =
+            "Umjereno pojednostavni ovaj tekst na hrvatski jezik tako da bude razumljiv, sa sažetim rečenicama i jednostavnim riječima.";
           break;
         case "visoka":
-          systemMessage = "";
+          systemMessage =
+            "Prevedi ovaj tekst na hrvatski jezik tako da bude lako razumljiv, sa sažetim rečenicama i jednostavnim riječima. Pojednostavni kao da je za osnovnoškolce.";
           break;
         default:
-          systemMessage = "";
+          systemMessage =
+            "Umjereno pojednostavni ovaj tekst na hrvatski jezik tako da bude razumljiv, sa sažetim rečenicama i jednostavnim riječima.";
       }
 
       const data = {
@@ -65,6 +72,8 @@ export default function Simplifikator() {
       const response = await axios.post(apiUrl, data, { headers });
 
       setOutputTekst(response.data.choices[0].message.content.trim());
+
+      addSimplifiedText(response.data.choices[0].message.content.trim());
     } catch (error) {
       alert("Error processing your request: " + error);
     }
@@ -88,7 +97,10 @@ export default function Simplifikator() {
           />
         </div>
         <div className="simplifikator-O">
-          <IzlazniTekst outputTekst={outputTekst} />
+          <IzlazniTekst
+            outputTekst={outputTekst}
+            setOutputTekst={setOutputTekst}
+          />
         </div>
       </div>
 

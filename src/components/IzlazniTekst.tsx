@@ -4,10 +4,18 @@ import React, { useRef } from "react";
 
 interface IzlazniTekstProps {
   outputTekst: string;
+  setOutputTekst: (value: string) => void;
 }
 
-const IzlazniTekst: React.FC<IzlazniTekstProps> = ({ outputTekst }) => {
+const IzlazniTekst: React.FC<IzlazniTekstProps> = ({
+  outputTekst,
+  setOutputTekst,
+}) => {
   const simplificiranoRef = useRef<HTMLTextAreaElement>(null);
+
+  const resetTextarea = () => {
+    setOutputTekst("");
+  };
 
   //TODO Istestirati copy gumb za mobitel
   const handleKopiraj = () => {
@@ -34,9 +42,10 @@ const IzlazniTekst: React.FC<IzlazniTekstProps> = ({ outputTekst }) => {
           className="izlaz-textarea"
           readOnly={true}
           value={outputTekst}
+          onChange={(e) => setOutputTekst(e.target.value)}
           ref={simplificiranoRef}
         ></textarea>
-        <button className="zatvori-btn">
+        <button className="zatvori-btn" onClick={resetTextarea}>
           <svg
             width="24"
             height="24"
