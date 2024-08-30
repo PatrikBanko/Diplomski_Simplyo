@@ -18,17 +18,17 @@ const IzlazniTekst: React.FC<IzlazniTekstProps> = ({
   };
 
   //TODO Istestirati copy gumb za mobitel
-  const handleKopiraj = () => {
+  function handleKopiraj() {
     if (simplificiranoRef.current) {
+      simplificiranoRef.current.removeAttribute("readOnly");
       simplificiranoRef.current.select();
-      navigator.clipboard
-        .writeText(simplificiranoRef.current.value)
-        .then(() => {
-          alert("Rezultat kopiran u međuspremnik!");
-        })
+      navigator.clipboard.writeText(simplificiranoRef.current.value).then(() => {
+        alert("Rezultat kopiran u međuspremnik!");
+      })
         .catch((err) => {
           console.error("Neuspjelo kopiranje u međuspremnik: ", err);
         });
+      simplificiranoRef.current.setAttribute("readOnly", "{true}");
     }
   };
 
@@ -37,13 +37,13 @@ const IzlazniTekst: React.FC<IzlazniTekstProps> = ({
       <div className="izlaz-header">
         {/* <textarea name="" id="" placeholder="Upiši tekst..."></textarea> */}
         <textarea
+          ref={simplificiranoRef}
           placeholder="Simplificirani tekst"
           rows={3}
           className="izlaz-textarea"
           readOnly={true}
           value={outputTekst}
           onChange={(e) => setOutputTekst(e.target.value)}
-          ref={simplificiranoRef}
         ></textarea>
         <button className="zatvori-btn" onClick={resetTextarea}>
           <svg

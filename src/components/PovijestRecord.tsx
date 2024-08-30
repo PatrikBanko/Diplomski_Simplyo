@@ -1,26 +1,40 @@
+import React, { useState, useRef } from "react";
 import "../styles/PovijestRecord.css";
 
-// interface PovijestRecordProps {
-//   outputTekst: string;
-// }
+interface PovijestRecordProps {
+  outputTekst: string;
+  setOutputTekst: (value: string) => void;
+}
 
-const PovijestRecord = (/*{ outputTekst }*/) => {
-  // const handleKopiraj = () => {
-  //   navigator.clipboard
-  //     .writeText(outputTekst)
-  //     .then(() => alert("Tekst kopiran u međuspremnik!"))
-  //     .catch((err) =>
-  //       console.error("Neuspjelo kopiranje u međuspremnik: ", err)
-  //     );
-  // };
+const PovijestRecord: React.FC<PovijestRecordProps> = ({ outputTekst, setOutputTekst }) => {
+  const simplificiranoRef = useRef<HTMLTextAreaElement>(null);
+
+  function handleKopiraj() {
+    if (simplificiranoRef.current) {
+      simplificiranoRef.current.removeAttribute("readOnly");
+      simplificiranoRef.current.select();
+      navigator.clipboard.writeText(simplificiranoRef.current.value).then(() => {
+        alert("Rezultat kopiran u međuspremnik!");
+      })
+        .catch((err) => {
+          console.error("Neuspjelo kopiranje u međuspremnik: ", err);
+        });
+      simplificiranoRef.current.setAttribute("readOnly", "{true}");
+    }
+  };
+
+
+
   return (
     <div className="povijest-record">
       <div className="povijest-record-header">
         <textarea
+          ref={simplificiranoRef}
           placeholder="Simplificirani tekst"
           rows={3}
           readOnly={true}
-        //value={outputTekst}
+          onChange={(e) => setOutputTekst(e.target.value)}
+          value={outputTekst}
         ></textarea>
       </div>
       <div className="povijest-record-footer">
@@ -41,7 +55,7 @@ const PovijestRecord = (/*{ outputTekst }*/) => {
             />
           </svg>
         </button>
-        <button className="kopiraj-btn" /*onClick={handleKopiraj}*/>
+        <button className="kopiraj-btn" onClick={handleKopiraj}>
           <svg
             width="24"
             height="24"

@@ -5,7 +5,14 @@
     justify-content: space-between;
 }
 
-.povijest>.povijest-record-container {
+.povijest p {
+    font-size: 17px;
+    color: white;
+    margin: 0px 20px 0px 20px;
+    text-align: center;
+}
+
+.povijest>.povijest-record-container-outer .povijest-record-container {
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
