@@ -15,8 +15,6 @@ export default function Povijest() {
   const [outputTekst, setOutputTekst] = useState("");
 
   return (
-    //TODO MOZDA dodati naslov na stranicu
-    //TODO ispraviti PovijestRecord komponente tako da se tekst siri unutar njih
     <div className="povijest">
       <div className="povijest-povratak-btn-container">
         <PovratakButton />
@@ -27,20 +25,26 @@ export default function Povijest() {
           <p>Nema sačuvanih pojednostavljenih tekstova.</p>
         ) : simplifiedTexts.length === 1 ? (
           <div className="povijest-record-container">
-            <PovijestRecord outputTekst={simplifiedTexts[0]} setOutputTekst={setOutputTekst} />
+            <PovijestRecord
+              outputTekst={simplifiedTexts[0]}
+              setOutputTekst={setOutputTekst}
+            />
           </div>
         ) : (
           <div className="povijest-record-container">
-            <PovijestRecord outputTekst={simplifiedTexts[0]} setOutputTekst={setOutputTekst} />
-            <PovijestRecord outputTekst={simplifiedTexts[1]} setOutputTekst={setOutputTekst} />
+            <PovijestRecord
+              outputTekst={simplifiedTexts[0]}
+              setOutputTekst={setOutputTekst}
+            />
+            <PovijestRecord
+              outputTekst={simplifiedTexts[1]}
+              setOutputTekst={setOutputTekst}
+            />
           </div>
         )}
 
-
-
         {/* <PovijestRecord outputTekst={simplifiedTexts[0]} setOutputTekst={setOutputTekst} />
         <PovijestRecord outputTekst={simplifiedTexts[1]} setOutputTekst={setOutputTekst} /> */}
-
       </div>
 
       <footer className="povijest-navigacija">

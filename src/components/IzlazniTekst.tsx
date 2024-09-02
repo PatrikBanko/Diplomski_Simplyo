@@ -17,25 +17,88 @@ const IzlazniTekst: React.FC<IzlazniTekstProps> = ({
     setOutputTekst("");
   };
 
-  //TODO Istestirati copy gumb za mobitel
+  // TODO OBRISATI PRIJE FINALNOG COMMITA NA GITHUB!!!
+  // Moj API ključ za testiranje
+  const API_KEY =
+    "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";
+
+  //const API_KEY = import.meta.env.VITE_OPENAI_API_KEY;
+
+  const textToSpeech = async (outputTekst: string) => {
+    try {
+      const openaiResponse = await fetch(
+        "https://api.openai.com/v1/audio/speech",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${API_KEY}`,
+          },
+          body: JSON.stringify({
+            model: "tts-1-hd",
+            voice: "alloy",
+            input: outputTekst,
+          }),
+        }
+      );
+
+      // Check if the response is okay
+      if (!openaiResponse.ok) {
+        console.error(
+          "API request failed:",
+          openaiResponse.status,
+          openaiResponse.statusText
+        );
+        return;
+      }
+
+      // Determine if the response is JSON or binary
+      const contentType = openaiResponse.headers.get("Content-Type");
+
+      if (contentType && contentType.includes("application/json")) {
+        const data = await openaiResponse.json();
+        console.log("JSON response:", data);
+      } else if (contentType && contentType.includes("audio/")) {
+        const audioBlob = await openaiResponse.blob();
+        const audioUrl = URL.createObjectURL(audioBlob);
+        const audio = new Audio(audioUrl);
+        audio.play();
+      } else {
+        console.error("Unexpected content type:", contentType);
+      }
+    } catch (error) {
+      console.error("Error during text-to-speech process:", error);
+    }
+  };
+
+  function handleTextToSpeech() {
+    try {
+      textToSpeech(outputTekst);
+    } catch (error) {
+      alert(error);
+      console.error(error);
+    }
+  }
+
   function handleKopiraj() {
     if (simplificiranoRef.current) {
       simplificiranoRef.current.removeAttribute("readOnly");
       simplificiranoRef.current.select();
-      navigator.clipboard.writeText(simplificiranoRef.current.value).then(() => {
-        alert("Rezultat kopiran u međuspremnik!");
-      })
+      navigator.clipboard
+        .writeText(simplificiranoRef.current.value)
+        .then(() => {
+          alert("Rezultat kopiran u međuspremnik!");
+        })
         .catch((err) => {
           console.error("Neuspjelo kopiranje u međuspremnik: ", err);
         });
       simplificiranoRef.current.setAttribute("readOnly", "{true}");
     }
-  };
+  }
 
   return (
     <div className="izlazni-tekst">
       <div className="izlaz-header">
-        {/* <textarea name="" id="" placeholder="Upiši tekst..."></textarea> */}
         <textarea
           ref={simplificiranoRef}
           placeholder="Simplificirani tekst"
@@ -64,7 +127,7 @@ const IzlazniTekst: React.FC<IzlazniTekstProps> = ({
         </button>
       </div>
       <div className="izlaz-footer">
-        <button className="govor-btn">
+        <button className="govor-btn" onClick={handleTextToSpeech}>
           <svg
             width="25"
             height="25"

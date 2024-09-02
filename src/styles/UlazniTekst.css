@@ -14,23 +14,17 @@
 
 .ulaz-header {
     display: flex;
-    /* justify-content: space-between; */
     align-items: flex-start;
-    /* margin-bottom: 20px; */
 }
 
 .ulaz-header>textarea {
     width: 100%;
-    /* padding: 10px; */
-    /* border-radius: 10px; */
     resize: none;
-    /* height: 300px; */
     font-size: 16px;
     color: white;
     background-color: #00000000;
     box-sizing: border-box;
-    /* margin-right: 10px; */
-    font-family: 'Inter';
+    font-family: "Inter";
     border: none;
     overflow: auto;
     outline: none;
@@ -38,7 +32,7 @@
 
 textarea::placeholder {
     color: white;
-    font-family: 'Inter';
+    font-family: "Inter";
 }
 
 textarea:focus {
@@ -57,6 +51,10 @@ textarea:focus {
     align-items: center;
 }
 
+.ulaz-footer-diktat {
+    display: flex;
+}
+
 .diktat-btn {
     background: #ff9500;
     border: none;
@@ -67,20 +65,43 @@ textarea:focus {
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    margin-right: 10px;
 }
 
 .diktat-btn:hover {
     fill: #ff9500;
     background-color: white;
     transition: 0.3s;
-
 }
 
 .diktat-btn:not(:hover) {
     color: white;
     background-color: #ff9500;
     transition: 0.3s;
+}
 
+.diktat-btn-stop {
+    background: #ff3b30;
+    border: none;
+    border-radius: 50%;
+    width: 47px;
+    height: 47px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.diktat-btn-stop:hover {
+    fill: #ff3b30;
+    background-color: white;
+    transition: 0.3s;
+}
+
+.diktat-btn-stop:not(:hover) {
+    color: white;
+    background-color: #ff3b30;
+    transition: 0.3s;
 }
 
 .simplificiraj-btn {
@@ -98,12 +119,10 @@ textarea:focus {
     color: #007aff;
     background-color: white;
     transition: 0.3s;
-
 }
 
 .simplificiraj-btn:not(:hover) {
     color: white;
     background-color: #007aff;
     transition: 0.3s;
-
 }

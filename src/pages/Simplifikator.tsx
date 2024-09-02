@@ -27,7 +27,12 @@ const Simplifikator = () => {
 
   const handleSimplificiraj = async () => {
     try {
-      const API_KEY = import.meta.env.VITE_OPENAI_API_KEY;
+      // TODO OBRISATI PRIJE FINALNOG COMMITA NA GITHUB!!!
+      // Moj API ključ za testiranje
+      const API_KEY =
+        "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";
+
+      //const API_KEY = import.meta.env.VITE_OPENAI_API_KEY;
 
       const apiUrl = "https://api.openai.com/v1/chat/completions";
 
@@ -73,7 +78,6 @@ const Simplifikator = () => {
 
       setOutputTekst(response.data.choices[0].message.content.trim());
       addSimplifiedText(response.data.choices[0].message.content.trim());
-
     } catch (error) {
       alert("Error processing your request: " + error);
     }
@@ -109,6 +113,6 @@ const Simplifikator = () => {
       </div>
     </div>
   );
-}
+};
 
-export default Simplifikator
+export default Simplifikator;
