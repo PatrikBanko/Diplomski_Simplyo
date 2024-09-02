@@ -1,6 +1,3 @@
-// import { Outlet, Link } from "react-router-dom";
-//import { useSimplifiedTextContext } from "../components/SimplificiraniTekstContext";
-
 import PovratakButton from "../components/PovratakButton";
 import PovijestRecord from "../components/PovijestRecord";
 import Navigacija from "../components/Navigacija";
@@ -27,7 +24,7 @@ export default function Povijest() {
           <div className="povijest-record-container">
             <PovijestRecord
               outputTekst={simplifiedTexts[0]}
-              setOutputTekst={setOutputTekst}
+              setOutputTekst={() => {}}
             />
           </div>
         ) : (
@@ -42,9 +39,6 @@ export default function Povijest() {
             />
           </div>
         )}
-
-        {/* <PovijestRecord outputTekst={simplifiedTexts[0]} setOutputTekst={setOutputTekst} />
-        <PovijestRecord outputTekst={simplifiedTexts[1]} setOutputTekst={setOutputTekst} /> */}
       </div>
 
       <footer className="povijest-navigacija">
@@ -52,6 +46,7 @@ export default function Povijest() {
           <Navigacija />
         </div>
       </footer>
+      <div style={{ display: "none" }}>{outputTekst}</div>
     </div>
   );
 }

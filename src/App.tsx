@@ -1,12 +1,12 @@
-// import { useState } from 'react'
 import "./App.css";
-import { Routes, Route } from "react-router-dom";
-import React from "react";
-import { SimplifiedTextProvider } from "./components/SimplificiraniTekstContext";
+// import { useState } from 'react'
+// import { Routes, Route } from "react-router-dom";
+// import React from "react";
+// import { SimplifiedTextProvider } from "./components/SimplificiraniTekstContext";
 
-import Pocetna from "./pages/Pocetna";
-import Simplifikator from "./pages/Simplifikator";
-import Povijest from "./pages/Povijest";
+// import Pocetna from "./pages/Pocetna";
+// import Simplifikator from "./pages/Simplifikator";
+// import Povijest from "./pages/Povijest";
 
 const App: React.FC = () => {
   return (
@@ -17,8 +17,8 @@ const App: React.FC = () => {
     //     <Route path="/povijest/" element={<Povijest />} />
     //   </Routes>
     // </SimplifiedTextProvider>
-    
+    <></>
   );
-}
+};
 
 export default App;
