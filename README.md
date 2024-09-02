@@ -26,12 +26,8 @@ ili
 yarn install
 ```
 
-## 3. Pokrenuti build aplikacije i server za pregledavanje
+## 3. Pokrenuti server za pregledavanje i testiranje
 
 ```bash
-npm run build
-```
-
-```bash
-npm run preview
+npm run dev
 ```
