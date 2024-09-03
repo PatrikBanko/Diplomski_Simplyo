@@ -26,7 +26,11 @@ ili
 yarn install
 ```
 
-## 3. Pokrenuti server za pregledavanje i testiranje
+## 3. Kreirati datoteku sa nazivom ".env" unutar korijenskog direktorija projekta
+
+Zalijepiti API ključ unutar .env datoteke
+
+## 4. Pokrenuti server za pregledavanje i testiranje
 
 ```bash
 npm run dev
