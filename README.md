@@ -29,6 +29,9 @@ yarn install
 ## 3. Kreirati datoteku sa nazivom ".env" unutar korijenskog direktorija projekta
 
 Zalijepiti API ključ unutar .env datoteke
+```
+VITE_OPENAI_API_KEY = ...
+```
 
 ## 4. Pokrenuti server za pregledavanje i testiranje
 
