@@ -91,6 +91,23 @@ const IzlazniTekst: React.FC<IzlazniTekstProps> = ({
     }
   }
 
+  // Zamjena fonta na klik gumba
+  const textareaZamjenaFonta = document.querySelector(".izlaz-textarea") as HTMLTextAreaElement;
+  let font = "Inter";
+
+  function handleZamjeniFont() {
+    if (font === "Inter") {
+      textareaZamjenaFonta.style.fontFamily = 'open-dyslexic';
+      textareaZamjenaFonta.style.fontSize = '20px';
+      font = "open-dyslexic";
+    }
+    else {
+      textareaZamjenaFonta.style.fontFamily = 'Inter';
+      textareaZamjenaFonta.style.fontSize = '16px';
+      font = "Inter";
+    }
+  };
+
   return (
     <div className="izlazni-tekst">
       <div className="izlaz-header">
@@ -122,23 +139,29 @@ const IzlazniTekst: React.FC<IzlazniTekstProps> = ({
         </button>
       </div>
       <div className="izlaz-footer">
-        <button className="govor-btn" onClick={handleTextToSpeech}>
-          <svg
-            width="25"
-            height="25"
-            viewBox="0 0 25 25"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M19.57 5.42999C21.4447 7.30527 22.4979 9.84835 22.4979 12.5C22.4979 15.1516 21.4447 17.6947 19.57 19.57M16.04 8.95999C16.9774 9.89763 17.5039 11.1692 17.5039 12.495C17.5039 13.8208 16.9774 15.0924 16.04 16.03M11.5 5.49999L6.5 9.49999H2.5V15.5H6.5L11.5 19.5V5.49999Z"
-              stroke="white"
-              stroke-width="2.5"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-          </svg>
-        </button>
+        <div className="izlaz-footer-lijeva-grupa">
+          <button className="govor-btn" onClick={handleTextToSpeech}>
+            <svg
+              width="25"
+              height="25"
+              viewBox="0 0 25 25"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M19.57 5.42999C21.4447 7.30527 22.4979 9.84835 22.4979 12.5C22.4979 15.1516 21.4447 17.6947 19.57 19.57M16.04 8.95999C16.9774 9.89763 17.5039 11.1692 17.5039 12.495C17.5039 13.8208 16.9774 15.0924 16.04 16.03M11.5 5.49999L6.5 9.49999H2.5V15.5H6.5L11.5 19.5V5.49999Z"
+                stroke="white"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </button>
+          <button className="promijeni-font" onClick={handleZamjeniFont}>
+            <p className=".promijeni-font p">ABC</p>
+          </button>
+        </div>
+
         <button className="kopiraj-btn" onClick={handleKopiraj}>
           <svg
             width="24"
