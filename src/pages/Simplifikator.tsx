@@ -1,15 +1,13 @@
 import { useState } from "react";
 import { useSimplifiedTextContext } from "../components/SimplificiraniTekstContext";
-
 import PovratakButton from "../components/PovratakButton";
 import Navigacija from "../components/Navigacija";
 import RazinaSimplifikacije from "../components/RazinaSimplifikacije";
 import UlazniTekst from "../components/UlazniTekst";
 import IzlazniTekst from "../components/IzlazniTekst";
-
 import axios from "axios";
-
 import "../styles/Simplifikator.css";
+
 
 const Simplifikator = () => {
   //State za unos i ispis teksta
