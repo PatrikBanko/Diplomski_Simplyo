@@ -12,11 +12,6 @@ const PovijestRecord: React.FC<PovijestRecordProps> = ({
 }) => {
   const simplificiranoRef = useRef<HTMLTextAreaElement>(null);
 
-  // TODO OBRISATI PRIJE FINALNOG COMMITA NA GITHUB!!!
-  // Moj API ključ za testiranje
-  // const API_KEY =
-  //   "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";
-
   const API_KEY = import.meta.env.VITE_OPENAI_API_KEY;
 
   const textToSpeech = async (outputTekst: string) => {

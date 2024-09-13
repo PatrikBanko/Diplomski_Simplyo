@@ -1,5 +1,4 @@
 import "../styles/IzlazniTekst.css";
-// import React, { useState, useRef } from "react";
 import React, { useRef } from "react";
 
 interface IzlazniTekstProps {
@@ -16,11 +15,6 @@ const IzlazniTekst: React.FC<IzlazniTekstProps> = ({
   const resetTextarea = () => {
     setOutputTekst("");
   };
-
-  // TODO OBRISATI PRIJE FINALNOG COMMITA NA GITHUB!!!
-  // Moj API ključ za testiranje
-  // const API_KEY =
-  //   "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";
 
   const API_KEY = import.meta.env.VITE_OPENAI_API_KEY;
 
@@ -42,7 +36,6 @@ const IzlazniTekst: React.FC<IzlazniTekstProps> = ({
         }
       );
 
-      // Check if the response is okay
       if (!openaiResponse.ok) {
         console.error(
           "API request failed:",

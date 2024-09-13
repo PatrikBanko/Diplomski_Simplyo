@@ -27,11 +27,6 @@ const Simplifikator = () => {
 
   const handleSimplificiraj = async () => {
     try {
-      // TODO OBRISATI PRIJE FINALNOG COMMITA NA GITHUB!!!
-      // Moj API ključ za testiranje
-      // const API_KEY =
-      //   "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";
-
       const API_KEY = import.meta.env.VITE_OPENAI_API_KEY;
 
       const apiUrl = "https://api.openai.com/v1/chat/completions";
@@ -46,23 +41,23 @@ const Simplifikator = () => {
       switch (razinaSimplifikacije) {
         case "Niska":
           systemMessage =
-            "Blago pojednostavi tekst, zadržavajući većinu originalnih detalja.";
+            "Blago pojednostavi ovaj tekst, zadržavajući većinu originalnih detalja. Rečenice neka budu blago složene, ali koristi dodatna objašnjenja i primjere za ključne pojmove.";
           break;
         case "Balansirana":
           systemMessage =
-            "Umjereno pojednostavni ovaj tekst na hrvatski jezik tako da bude razumljiv, sa sažetim rečenicama i jednostavnim riječima.";
+            "Umjereno pojednostavi ovaj tekst tako da bude razumljiv. Koristi kratke ili duge rečenice, ali jednostavne za razumijevanje. Objasni ključne pojmove koji se javljaju u tekstu koristeći kratka objašnjenja. Prema potrebi dodaj i kontekst za bolje razumijevanje.";
           break;
         case "visoka":
           systemMessage =
-            "Prevedi ovaj tekst na hrvatski jezik tako da bude lako razumljiv, sa sažetim rečenicama i jednostavnim riječima. Pojednostavni kao da je za osnovnoškolce.";
+            "Pojednostavi ovaj tekst tako da bude lako razumljiv. Koristi sažete i jednostavne rečenice i osnovni vokabular bez složene terminologije. Pojednostavni kao da je za osnovnoškolce.";
           break;
         default:
           systemMessage =
-            "Umjereno pojednostavni ovaj tekst na hrvatski jezik tako da bude razumljiv, sa sažetim rečenicama i jednostavnim riječima.";
+            "Umjereno pojednostavi ovaj tekst tako da bude razumljiv. Koristi kratke ili duge rečenice, ali jednostavne za razumijevanje. Objasni ključne pojmove koji se javljaju u tekstu koristeći kratka objašnjenja. Prema potrebi dodaj i kontekst za bolje razumijevanje.";
       }
 
       const data = {
-        model: "gpt-4o-mini",
+        model: "gpt-4o",
         messages: [
           {
             role: "system",
