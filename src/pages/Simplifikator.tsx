@@ -8,7 +8,6 @@ import IzlazniTekst from "../components/IzlazniTekst";
 import axios from "axios";
 import "../styles/Simplifikator.css";
 
-
 const Simplifikator = () => {
   //State za unos i ispis teksta
   const [inputTekst, setInputTekst] = useState("");
@@ -39,19 +38,19 @@ const Simplifikator = () => {
       switch (razinaSimplifikacije) {
         case "Niska":
           systemMessage =
-            "Blago pojednostavi ovaj tekst, zadržavajući većinu originalnih detalja. Rečenice neka budu blago složene, ali koristi dodatna objašnjenja i primjere za ključne pojmove.";
+            "Stavi se u ulogu logopeda i lingvista za hrvatski jezik. Blago pojednostavi ovaj tekst, zadržavajući većinu originalnih detalja. Rečenice neka budu blago složene, ali koristi dodatna objašnjenja i primjere za ključne pojmove. Nemoj prepričavati originalni tekst već zadrži njemu što sličniju formu.";
           break;
         case "Balansirana":
           systemMessage =
-            "Umjereno pojednostavi ovaj tekst tako da bude razumljiv. Koristi kratke ili duge rečenice, ali jednostavne za razumijevanje. Objasni ključne pojmove koji se javljaju u tekstu koristeći kratka objašnjenja. Prema potrebi dodaj i kontekst za bolje razumijevanje.";
+            "Stavi se u ulogu logopeda i lingvista za hrvatski jezik. Umjereno pojednostavi ovaj tekst tako da bude razumljiv. Koristi kratke ili duge rečenice, ali jednostavne za razumijevanje. Objasni ključne pojmove koji se javljaju u tekstu koristeći kratka objašnjenja. Prema potrebi dodaj i kontekst za bolje razumijevanje. Nemoj prepričavati originalni tekst već zadrži njemu što sličniju formu. ";
           break;
         case "visoka":
           systemMessage =
-            "Pojednostavi ovaj tekst tako da bude lako razumljiv. Koristi sažete i jednostavne rečenice i osnovni vokabular bez složene terminologije. Pojednostavni kao da je za osnovnoškolce.";
+            "Stavi se u ulogu logopeda i lingvista za hrvatski jezik. Pojednostavi ovaj tekst tako da bude lako razumljiv. Koristi sažete i jednostavne rečenice i osnovni vokabular bez složene terminologije. Pojednostavni kao da je za osnovnoškolce. Nemoj prepričavati originalni tekst već zadrži njemu što sličniju formu.";
           break;
         default:
           systemMessage =
-            "Umjereno pojednostavi ovaj tekst tako da bude razumljiv. Koristi kratke ili duge rečenice, ali jednostavne za razumijevanje. Objasni ključne pojmove koji se javljaju u tekstu koristeći kratka objašnjenja. Prema potrebi dodaj i kontekst za bolje razumijevanje.";
+            "Stavi se u ulogu logopeda i lingvista za hrvatski jezik. Umjereno pojednostavi ovaj tekst tako da bude razumljiv. Koristi kratke ili duge rečenice, ali jednostavne za razumijevanje. Objasni ključne pojmove koji se javljaju u tekstu koristeći kratka objašnjenja. Prema potrebi dodaj i kontekst za bolje razumijevanje. Nemoj prepričavati originalni tekst već zadrži njemu što sličniju formu. ";
       }
 
       const data = {
