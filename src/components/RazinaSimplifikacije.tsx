@@ -30,7 +30,7 @@ const RazinaSimplifikacije: React.FC<RazinaSimplifikacijeProps> = ({
           Razina simplifikacije
         </option>
         <option value="niska">Niska</option>
-        <option value="balansirana">Balansirana</option>
+        <option value="srednja">Srednja</option>
         <option value="visoka">Visoka</option>
       </select>
     </div>

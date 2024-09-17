@@ -40,7 +40,7 @@ const Simplifikator = () => {
           systemMessage =
             "Stavi se u ulogu logopeda i lingvista za hrvatski jezik. Blago pojednostavi ovaj tekst, zadržavajući većinu originalnih detalja. Rečenice neka budu blago složene, ali koristi dodatna objašnjenja i primjere za ključne pojmove. Nemoj prepričavati originalni tekst već zadrži njemu što sličniju formu.";
           break;
-        case "Balansirana":
+        case "srednja":
           systemMessage =
             "Stavi se u ulogu logopeda i lingvista za hrvatski jezik. Umjereno pojednostavi ovaj tekst tako da bude razumljiv. Koristi kratke ili duge rečenice, ali jednostavne za razumijevanje. Objasni ključne pojmove koji se javljaju u tekstu koristeći kratka objašnjenja. Prema potrebi dodaj i kontekst za bolje razumijevanje. Nemoj prepričavati originalni tekst već zadrži njemu što sličniju formu. ";
           break;
